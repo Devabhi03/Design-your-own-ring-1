@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Your Own Ring</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 font-sans transition-colors duration-300">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <header class="text-center mb-12 relative">
+            <button id="theme-toggle" class="absolute top-0 right-0 p-2 rounded-full">
+                <i class="fas fa-moon text-gray-800 dark:text-yellow-300"></i>
+            </button>
+            <h1 class="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-2">Design Your Dream Ring</h1>
+            <p class="text-gray-600 dark:text-gray-300">Create a unique piece that tells your story</p>
+            
+            <!-- Progress bar -->
+            <div class="mt-8 mb-6">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Step <span id="current-step">1</span> of 4</span>
+                    <span class="text-sm font-medium text-gray-500 dark:text-gray-400" id="step-name">Choose Base Metal</span>
+                </div>
+                <div class="progress-bar rounded-full">
+                    <div class="progress-fill rounded-full" style="width: 25%"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Main Content -->
+            <div class="lg:w-2/3">
+                <!-- Step 1: Choose Metal -->
+                <div id="step-1" class="step-content">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Select Your Metal</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="option-card border-2 border-gray-200 dark:border-white rounded-lg p-4 cursor-pointer" data-value="gold" data-price="500">
+                            <div class="flex flex-col items-center">
+                                <img src="https://rubans.in/cdn/shop/files/rubans-22k-gold-plated-long-jewellery-set-with-ruby-red-emerald-green-and-pearl-beads-necklaces-necklace-sets-chains-mangalsutra-1151539148.jpg?v=1751576606" class="w-16 h-16 rounded-full object-cover mb-3" alt="Gold" style="background-color: #FFD700">
+                                <h3 class="font-medium text-lg text-gray-800">Gold</h3>
+                                <p class="text-gray-600">₹500</p>
+                            </div>
+                        </div>
+                        <div class="option-card border-2 border-gray-200 dark:border-white rounded-lg p-6 cursor-pointer" data-value="platinum" data-price="800">
+                            <div class="flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=200&auto=format&fit=crop" class="w-16 h-16 rounded-full object-cover mb-3" alt="Platinum">
+                                <h3 class="font-medium text-lg text-gray-800">Platinum</h3>
+                                <p class="text-gray-600">₹800</p>
+                            </div>
+                        </div>
+                        <div class="option-card border-2 border-gray-200 dark:border-white rounded-lg p-6 cursor-pointer" data-value="rose-gold" data-price="600">
+                            <div class="flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&auto=format&fit=crop" class="w-16 h-16 rounded-full object-cover mb-3" alt="Rose Gold">
+                                <h3 class="font-medium text-lg text-gray-800">Rose Gold</h3>
+                                <p class="text-gray-600">₹600</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Choose Diamond -->
+                <div id="step-2" class="step-content hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Select Your Diamond</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="option-card border-2 border-gray-200 dark:border-white rounded-lg p-6 cursor-pointer" data-value="round" data-price="1000">
+                            <div class="flex flex-col items-center">
+                                <div class="w-16 h-16 mb-3 flex items-center justify-center">
+                                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                                        <polygon points="50,0 65,35 100,35 75,60 85,100 50,80 15,100 25,60 0,35 35,35" fill="#e0f2fe" stroke="#bae6fd" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-medium text-lg text-gray-800">Star</h3>
+                                <p class="text-gray-600">₹1,000</p>
+                            </div>
+                        </div>
+                        <div class="option-card border-2 border-gray-200 dark:border-white rounded-lg p-6 cursor-pointer" data-value="princess" data-price="1200">
+                            <div class="flex flex-col items-center">
+                                <div class="w-16 h-16 mb-3 flex items-center justify-center">
+                                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                                        <rect x="20" y="20" width="60" height="60" fill="#e0f2fe" stroke="#bae6fd" stroke-width="2" transform="rotate(45 50 50)"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-medium text-lg text-gray-800">Princess</h3>
+                                <p class="text-gray-600">₹1,200</p>
+                            </div>
+                        </div>
+                        <div class="option-card border-2 border-gray-200 dark:border-white rounded-lg p-6 cursor-pointer" data-value="oval" data-price="1100">
+                            <div class="flex flex-col items-center">
+                                <div class="w-16 h-16 mb-3 flex items-center justify-center">
+                                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                                        <ellipse cx="50" cy="50" rx="35" ry="25" fill="#e0f2fe" stroke="#bae6fd" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-medium text-lg text-gray-800">Oval</h3>
+                                <p class="text-gray-600">₹1,100</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Choose Style -->
+                <div id="step-3" class="step-content hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Select Your Ring Style</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="option-card border-2 border-gray-200 dark:border-white rounded-lg p-6 cursor-pointer" data-value="classic" data-price="300">
+                            <div class="flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=200&auto=format&fit=crop" class="w-16 h-16 object-cover mb-3" alt="Classic Ring">
+                                <h3 class="font-medium text-lg text-gray-800">Classic</h3>
+                                <p class="text-gray-600">₹300</p>
+                            </div>
+                        </div>
+                        <div class="option-card border-2 border-gray-200 dark:border-white rounded-lg p-6 cursor-pointer" data-value="vintage" data-price="500">
+                            <div class="flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&auto=format&fit=crop" class="w-16 h-16 object-cover mb-3" alt="Vintage Ring">
+                                <h3 class="font-medium text-lg text-gray-800">Vintage</h3>
+                                <p class="text-gray-600">₹500</p>
+                            </div>
+                        </div>
+                        <div class="option-card border-2 border-gray-200 dark:border-white rounded-lg p-6 cursor-pointer" data-value="modern" data-price="400">
+                            <div class="flex flex-col items-center">
+                                <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=200&auto=format&fit=crop" class="w-16 h-16 object-cover mb-3" alt="Modern Ring">
+                                <h3 class="font-medium text-lg text-gray-800">Modern</h3>
+                                <p class="text-gray-600">₹400</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Review Order -->
+                <div id="step-4" class="step-content hidden">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Review Your Custom Ring</h2>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-medium text-gray-800 mb-4">Order Summary</h3>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Base Metal:</span>
+                                <span class="font-medium" id="summary-metal">Not selected</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Diamond:</span>
+                                <span class="font-medium" id="summary-diamond">Not selected</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Style:</span>
+                                <span class="font-medium" id="summary-style">Not selected</span>
+                            </div>
+                            <div class="border-t border-gray-200 my-2"></div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Metal Price:</span>
+                                <span class="font-medium" id="summary-metal-price">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Diamond Price:</span>
+                                <span class="font-medium" id="summary-diamond-price">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Style Price:</span>
+                                <span class="font-medium" id="summary-style-price">₹0</span>
+                            </div>
+                            <div class="border-t border-gray-200 my-2"></div>
+                            <div class="flex justify-between text-lg font-semibold">
+                                <span>Total:</span>
+                                <span id="summary-total">₹0</span>
+                            </div>
+                        </div>
+                        <button id="submit-order" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                            Submit Order
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thank You Message -->
+                <div id="thank-you" class="step-content hidden text-center py-12">
+                    <div class="bg-white rounded-lg shadow-md p-8 max-w-md mx-auto">
+                        <div class="text-green-500 text-6xl mb-4">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Thank You!</h2>
+                        <p class="text-gray-600 mb-6">Your custom ring order has been submitted. We'll contact you shortly to confirm the details.</p>
+                        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                            <button id="design-another" class="bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+                                Design Another Ring
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="mt-8 flex justify-between">
+                    <button id="prev-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-6 rounded-lg transition duration-300 hidden">
+                        <i class="fas fa-arrow-left mr-2"></i> Back
+                    </button>
+                    <button id="next-btn" class="bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300 ml-auto">
+                        Next <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ring Preview Sidebar -->
+            <div class="lg:w-1/3">
+                <div class="ring-preview rounded-lg p-6 sticky top-6 dark:bg-gray-800">
+                    <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Your Ring Preview</h2>
+                    <div class="flex justify-center mb-8">
+                        <div class="relative w-48 h-48">
+                            <!-- Ring base -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div id="ring-base" class="w-32 h-32 rounded-full border-4 border-transparent"></div>
+                            </div>
+                            <!-- Diamond -->
+                            <div id="diamond-preview" class="absolute inset-0 flex items-center justify-center opacity-0">
+                                <svg id="diamond-svg" viewBox="0 0 100 100" class="w-16 h-16">
+                                    <!-- Default diamond shape will be set via JS -->
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Metal:</span>
+                            <span class="font-medium" id="preview-metal">Not selected</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Diamond:</span>
+                            <span class="font-medium" id="preview-diamond">Not selected</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Style:</span>
+                            <span class="font-medium" id="preview-style">Not selected</span>
+                        </div>
+                        <div class="border-t border-gray-200 my-2"></div>
+                        <div class="flex justify-between text-lg font-semibold">
+                            <span>Current Total:</span>
+                            <span id="preview-total">₹0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

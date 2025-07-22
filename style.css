@@ -1,0 +1,24 @@
+
+        .ring-preview {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+        }
+        .option-card {
+            transition: all 0.3s ease;
+        }
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .option-card.selected {
+            border-color: #d4a017;
+            background-color: #fffaf0;
+        }
+        .progress-bar {
+            height: 6px;
+            background-color: #e5e7eb;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: #d4a017;
+            transition: width 0.5s ease;
+        }
